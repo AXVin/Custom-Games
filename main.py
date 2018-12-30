@@ -6,7 +6,7 @@ description = '''The Custom Games bot is here!
 My creator is AXVin#2130!'''
 
 # this specifies what extensions to load when the bot starts up
-startup_extensions = ["customgames"]
+startup_extensions = ["cogs.customgames"]
 
 bot = commands.Bot(command_prefix='cg!', description=description)
 
