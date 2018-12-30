@@ -219,7 +219,7 @@ class CGames:
         else:
             embed.add_field(name='Map', value=maps[map_choice.reaction.emoji])
             embed.add_field(name='Perspective', value=ftpp[ftpp_choice.reaction.emoji])
-        embed.add_field(name='Starts in-', value='{0} minutes'.format(time.content))
+  #      embed.add_field(name='Starts in-', value='{0} minutes'.format(time.content))
 # For the ping, check server settings for mode
   #      Mode = settings["Mode"]
   #      if Mode == None:
