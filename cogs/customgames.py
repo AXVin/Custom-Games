@@ -175,33 +175,33 @@ class CGames:
             await self.bot.delete_message(ftpp_message)
         
 # Start Time - 5m 10m 15m 20m 25m 30m
-        time_message = await self.bot.send_message(member, "In what time will the match begin from now?\nMust be just a number between 5 and 30 and should be in minutes\nFor eg- 15")
-        time = await self.bot.wait_for_message(timeout=35, author=member)
+    #    time_message = await self.bot.send_message(member, "In what time will the match begin from now?\nMust be just a number between 5 and 30 and should be in minutes\nFor eg- 15")
+    #    time = await self.bot.wait_for_message(timeout=35, author=member)
         
-        try:
-            int(time.content)
-            pass
-        except:
-            t11 = await self.bot.send_message(member, "Must be a number. You have one more chance to try.\nTip: Only type the number. It must be an integer")
-            time = await self.bot.wait_for_message(timeout=35, author=member)
-            try:
-                int(time.content)
-                await self.bot.delete_message(t11)
-            except:
-                await self.bot.send_message(member, "You are still doing it wrong. Contact a Mod to kno da wae!!")
-                return
+   #     try:
+    #        int(time.content)
+    #        pass
+  #      except:
+    #        t11 = await self.bot.send_message(member, "Must be a number. You have one more chance to try.\nTip: Only type the number. It must be an integer")
+   #         time = await self.bot.wait_for_message(timeout=35, author=member)
+    #        try:
+    #            int(time.content)
+    #            await self.bot.delete_message(t11)
+    #        except:
+    #            await self.bot.send_message(member, "You are still doing it wrong. Contact a Mod to kno da wae!!")
+   #             return
         
-        if int(time.content) < 30 and int(time.content) > 0:
-            pass
-        else:
-            t22 = await self.bot.send_message(member, "Must be a number between 5 and 30. You have one more chance to try.")
-            time = await self.bot.wait_for_message(timeout=35, author=member)
-            if not int(time.content) < 30 and int(time.content) > 0:
-                await self.bot.send_message(member, "You are still doing it wrong. Contact a Mod to kno da wae!!")
-                return
-            else:
-                await self.bot.delete_message(t22)
-        await self.bot.delete_message(time_message)
+  #      if int(time.content) < 30 and int(time.content) > 0:
+   #         pass
+  #      else:
+   #         t22 = await self.bot.send_message(member, "Must be a number between 5 and 30. You have one more chance to try.")
+   #         time = await self.bot.wait_for_message(timeout=35, author=member)
+   #         if not int(time.content) < 30 and int(time.content) > 0:
+   #             await self.bot.send_message(member, "You are still doing it wrong. Contact a Mod to kno da wae!!")
+   #             return
+   #         else:
+    #            await self.bot.delete_message(t22)
+   #     await self.bot.delete_message(time_message)
 # Start making the embed
         colour = ''.join([choice('0123456789ABCDEF') for x in range(6)])
         colour = int(colour, 16)
