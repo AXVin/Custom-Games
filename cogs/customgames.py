@@ -133,7 +133,7 @@ class CGames:
         for emoji in self.server_emoji_objects:
             await self.bot.add_reaction(server_message, emoji)
             await asyncio.sleep(0.5)
-        room_server = await self.bot.wait_for_reaction(timeout=35, emoji=server_emoji_objects, message=server_message, check=check)
+        room_server = await self.bot.wait_for_reaction(timeout=35, emoji=self.server_emoji_objects, message=server_message, check=check)
         await self.bot.delete_message(server_message)
 
 
