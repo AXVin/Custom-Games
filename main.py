@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-from .utils import checks
+from .cogs.utils import checks
 import os
 
 description = '''The Custom Games bot is here!
@@ -36,16 +36,6 @@ async def unload(extension_name : str):
     bot.unload_extension(extension_name)
     await bot.say("{} unloaded.".format(extension_name))
 
-#@bot.command()
-#async def add(left : int, right : int):
-#    """Adds two numbers together."""
-#    await bot.say(left + right)
-
-#@bot.command()
-#async def repeat(times : int, content='repeating...'):
-#    """Repeats a message multiple times."""
-#    for i in range(times):
-#        await bot.say(content)
 
 if __name__ == "__main__":
     for extension in startup_extensions:
@@ -55,4 +45,4 @@ if __name__ == "__main__":
             exc = '{}: {}'.format(type(e).__name__, e)
             print('Failed to load extension {}\n{}'.format(extension, exc))
 
-    bot.run('NTI4ODY5MDE2NjYwNDc1OTI1.DwpU4Q.IYYKWfp0sTjINDKUuleOGbbheeE')
+    bot.run(os.environ.get("TOKEN"))
