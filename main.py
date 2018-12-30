@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from .utils import checks
 import os
 
 description = '''The Custom Games bot is here!
@@ -18,6 +19,7 @@ async def on_ready():
     print('------')
 
 @bot.command()
+@checks.is_owner()
 async def load(extension_name : str):
     """Loads an extension."""
     try:
@@ -28,6 +30,7 @@ async def load(extension_name : str):
     await bot.say("{} loaded.".format(extension_name))
 
 @bot.command()
+@checks.is_owner()
 async def unload(extension_name : str):
     """Unloads an extension."""
     bot.unload_extension(extension_name)

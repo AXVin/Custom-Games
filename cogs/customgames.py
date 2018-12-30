@@ -49,7 +49,7 @@ class CGames:
         self.bot = bot
    #     self.file_path = "data/cgames/system.json"
    #     self.system = dataIO.load_json(self.file_path)
-        self.emoji_server = self.bot.get_server('431374578409799681')
+        self.emoji_server = await self.bot.get_server('431374578409799681')
         server_emojis = [k for k in servers]
         server_emoji_objects = []
         for x in self.emoji_server.emojis:
