@@ -1,4 +1,3 @@
 pip
 git+https://github.com/Rapptz/discord.py/archive/rewrite.zip
-async
 asyncio
