@@ -1,48 +1,70 @@
 import discord
 from discord.ext import commands
-from .cogs.utils import checks
 import os
+import sys, traceback
 
-description = '''The Custom Games bot is here!
-My creator is AXVin#2130!'''
+"""This is a multi file example showcasing many features of the command extension and the use of cogs.
+These are examples only and are not intended to be used as a fully functioning bot. Rather they should give you a basic
+understanding and platform for creating your own bot.
 
-# this specifies what extensions to load when the bot starts up
-startup_extensions = ["cogs.customgames"]
+These examples make use of Python 3.6.2 and the rewrite version on the lib.
 
-bot = commands.Bot(command_prefix='cg!', description=description)
+For examples on cogs for the async version:
+https://gist.github.com/leovoel/46cd89ed6a8f41fd09c5
 
-@bot.event
-async def on_ready():
-    print('Logged in as')
-    print(bot.user.name)
-    print(bot.user.id)
-    print('------')
+Rewrite Documentation:
+http://discordpy.readthedocs.io/en/rewrite/api.html
 
-@bot.command()
-@checks.is_owner()
-async def load(extension_name : str):
-    """Loads an extension."""
-    try:
-        bot.load_extension(extension_name)
-    except (AttributeError, ImportError) as e:
-        await bot.say("```py\n{}: {}\n```".format(type(e).__name__, str(e)))
-        return
-    await bot.say("{} loaded.".format(extension_name))
+Rewrite Commands Documentation:
+http://discordpy.readthedocs.io/en/rewrite/ext/commands/api.html
 
-@bot.command()
-@checks.is_owner()
-async def unload(extension_name : str):
-    """Unloads an extension."""
-    bot.unload_extension(extension_name)
-    await bot.say("{} unloaded.".format(extension_name))
+Familiarising yourself with the documentation will greatly help you in creating your bot and using cogs.
+"""
 
 
-if __name__ == "__main__":
-    for extension in startup_extensions:
+def get_prefix(bot, message):
+    """A callable Prefix for our bot. This could be edited to allow per server prefixes."""
+
+    # Notice how you can use spaces in prefixes. Try to keep them simple though.
+    prefixes = ['cg!', 'cg! ']
+
+    # Check to see if we are outside of a guild. e.g DM's etc.
+    if not message.guild:
+        # Only allow ? to be used in DMs
+        return ''
+
+    # If we are in a guild, we allow for the user to mention us or use any of the prefixes in our list.
+    return commands.when_mentioned_or(*prefixes)(bot, message)
+
+
+# Below cogs represents our folder our cogs are in. Following is the file name. So 'meme.py' in cogs, would be cogs.meme
+# Think of it like a dot path import
+initial_extensions = ['cogs.simple',
+                      'cogs.members',
+                      'cogs.owner',
+                      'cogs.customgames']
+
+bot = commands.Bot(command_prefix=get_prefix, description='A Rewrite Cog Example')
+
+# Here we load our extensions(cogs) listed above in [initial_extensions].
+if __name__ == '__main__':
+    for extension in initial_extensions:
         try:
             bot.load_extension(extension)
         except Exception as e:
-            exc = '{}: {}'.format(type(e).__name__, e)
-            print('Failed to load extension {}\n{}'.format(extension, exc))
+            print(f'Failed to load extension {extension}.', file=sys.stderr)
+            traceback.print_exc()
 
-    bot.run(os.environ.get("TOKEN"))
+
+@bot.event
+async def on_ready():
+    """http://discordpy.readthedocs.io/en/rewrite/api.html#discord.on_ready"""
+
+    print(f'\n\nLogged in as: {bot.user.name} - {bot.user.id}\nVersion: {discord.__version__}\n')
+
+    # Changes our bots Playing Status. type=1(streaming) for a standard game you could remove type and url.
+  #  await bot.change_presence(game=discord.Game(name='Cogs Example', type=1, url='https://twitch.tv/kraken'))
+    print(f'Successfully logged in and booted...!')
+
+
+bot.run(os.environ.get("TOKEN"), bot=True, reconnect=True)
