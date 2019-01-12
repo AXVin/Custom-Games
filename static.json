@@ -1,6 +1,18 @@
 {
     "clean_urls": true,
     "redirects": {
+        "/twitter": {
+            "url": "https://twitter.com/_axvin_",
+            "status": 302
+        },
+        "/discord": {
+            "url": "https://discord.gg/SVh4jJP",
+            "status": 302
+        },
+        "/patreon": {
+            "url": "https://patreon.com/AXVin",
+            "status": 302
+        },
         "/twitter/": {
             "url": "https://twitter.com/_axvin_",
             "status": 302
