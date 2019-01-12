@@ -1,25 +1,38 @@
 body {
-    background-color:#ee70ba;
-    color:#ffffff;
     padding:2%;
     font-family:sans-serif;
 }
+
 p {
-    background-color: #0036FF;
-    color: #000000;
     padding:2%;
     margin:2%;
+    border:thin solid black;
 }
-h1 {
-    border-bottom:2em solid #FF00CE;
+
+h1, h2, h3 {
+    color:#10A090;
+    text-decoration: underline overline;
+    border-bottom:thin solid #784008;
 }
+
 ul {
-    padding: 10% 10% 10% 50%;
+    padding: 10% 10% 10% 25%;
     font-family:serif;
 }
-a {
-    color:#FF0000;
-}
+
 .center {
     padding:5% 5% 5% 5%;
+}
+
+blockquote {
+    color: #F08020;
+    font-style: italic;
+}
+
+img {
+    position: center;
+}
+
+a {
+    color: black;
 }
