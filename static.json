@@ -17,5 +17,6 @@
     "https_only": true,
     "routes":{
         "/**": "index.html"
-    }
+    },
+    "root": "CG-Bot/"
 }
