@@ -1,0 +1,25 @@
+body {
+    background-color:#ee70ba;
+    color:#ffffff;
+    padding:2%;
+    font-family:sans-serif;
+}
+p {
+    background-color: #0036FF;
+    color: #000000;
+    padding:2%;
+    margin:2%;
+}
+h1 {
+    border-bottom:2em solid #FF00CE;
+}
+ul {
+    padding: 10% 10% 10% 50%;
+    font-family:serif;
+}
+a {
+    color:#FF0000;
+}
+.center {
+    padding:5% 5% 5% 5%;
+}
