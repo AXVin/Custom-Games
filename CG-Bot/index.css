@@ -44,7 +44,6 @@ a {
 }
 
 .botintro {
-    text-align          : none;
     background-image    : url(images/bot.png);
     background-repeat   : no-repeat;
     background-position : top left;
@@ -56,7 +55,7 @@ a {
     padding-left        : 250px;
     margin              : 30px;
     margin-right        : 60px;
-    line-height         : 4em;
+    line-height         : 2em;
 }
 
 #gui {
