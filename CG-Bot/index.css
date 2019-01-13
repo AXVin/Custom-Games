@@ -23,12 +23,6 @@ ul {
     font-family : serif;
 }
 
-/*
-.center {
-    padding:5% 5% 5% 5%;
-}
-*/
-
 blockquote {
     color      : #F08020;
     font-style : italic;
@@ -44,18 +38,22 @@ a {
 }
 
 .botintro {
+    font-family         : serif;
+    line-height         : 2em;
+    
+    border              : 1px white dashed;
+    border-radius       : 15px;
+    
+    padding             : 25px;
+    padding-left        : 250px;
+    
+    margin              : 30px;
+    margin-right        : 60px;
+    
     background-image    : url(images/bot.png);
     background-repeat   : no-repeat;
     background-position : top left;
     background-color    : #F0B000;
-    font-family         : serif;
-    border              : 1px white dashed;
-    border-radius       : 15px;
-    padding             : 25px;
-    padding-left        : 250px;
-    margin              : 30px;
-    margin-right        : 60px;
-    line-height         : 2em;
 }
 
 #gui {
